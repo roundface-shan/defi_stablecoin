@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import {Script} from "forge-std/Script.sol";
 import {HelperConfig} from "./HelperConfig.s.sol";
-import {DecentralizedStableCoin} from "../src/DecentralizedStableCoin.sol";
+import {DecentralizedStablecoin} from "../src/DecentralizedStablecoin.sol";
 import {DSCEngine} from "../src/DSCEngine.sol";
 
 contract DeployDSC is Script {
@@ -12,7 +12,7 @@ contract DeployDSC is Script {
 
     function run()
         external
-        returns (DecentralizedStableCoin, DSCEngine, HelperConfig)
+        returns (DecentralizedStablecoin, DSCEngine, HelperConfig)
     {
         HelperConfig helperConfig = new HelperConfig(); // This comes with our mocks!
 
@@ -27,7 +27,7 @@ contract DeployDSC is Script {
         priceFeedAddresses = [wethUsdPriceFeed, wbtcUsdPriceFeed];
 
         vm.startBroadcast(deployerKey);
-        DecentralizedStableCoin dsc = new DecentralizedStableCoin();
+        DecentralizedStablecoin dsc = new DecentralizedStablecoin();
         DSCEngine dscEngine = new DSCEngine(
             tokenAddresses,
             priceFeedAddresses,
