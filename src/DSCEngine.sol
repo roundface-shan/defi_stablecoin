@@ -25,7 +25,7 @@
 pragma solidity 0.8.20;
 
 import {OracleLib, AggregatorV3Interface} from "./libraries/OracleLib.sol";
-// The correct path for ReentrancyGuard in latest Openzeppelin contracts is
+// use the path below for updated OpenZeppelin contracts, I suggest not to, cause that bring you loads trouble
 //"import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -75,7 +75,7 @@ contract DSCEngine is ReentrancyGuard {
 
     uint256 private constant LIQUIDATION_THRESHOLD = 50; // This means you need to be 200% over-collateralized
     uint256 private constant LIQUIDATION_BONUS = 10; // This means you get assets at a 10% discount when liquidating
-    uint256 private constant LIQUIDATION_PRECISION = 100;
+    uint256 private constant LIQUIDATION_PRECISION = 100; // who let solidity cant support radix point?
     uint256 private constant MIN_HEALTH_FACTOR = 1e18;
     uint256 private constant PRECISION = 1e18;
     uint256 private constant ADDITIONAL_FEED_PRECISION = 1e10;
